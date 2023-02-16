@@ -27,10 +27,32 @@ public class LimitedArrayList<E> extends ArrayList<E> {
         if (array.length > maximumSize) {
             throw new IndexOutOfBoundsException("Array length is greater than maximum size!");
         } else {
-            for (int i = 0; i < maximumSize; i++) {
+            for (int i = 0; i < array.length; i++) {
                 super.add(array[i]);
             }
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public LimitedArrayList(int maximumSize, Collection<? extends E> c) {
+        super(maximumSize);
+        this.maximumSize = maximumSize;
+        Object[] array = c.toArray();
+        if (array.length > maximumSize) {
+            throw new IndexOutOfBoundsException("Array length is greater than maximum size!");
+        } else {
+            for (int i = 0; i < array.length; i++) {
+                super.add((E) array[i]);
+            }
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // GETTERS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public int getMaximumSize() {
+        return this.maximumSize;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,24 +95,4 @@ public class LimitedArrayList<E> extends ArrayList<E> {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    // TESTING
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static void main(String[] args) {
-        Integer[] array = {5,6};
-        LimitedArrayList<Integer> limList = new LimitedArrayList<>(4);
-        LimitedArrayList<Integer> limList2 = new LimitedArrayList<>(4, array);
-
-        limList.add(1);
-        limList.add(2);
-        limList.add(3);
-        // limList.add(4);
-        System.out.println(limList);
-        System.out.println(limList2);
-
-        limList.addAll(0, limList2);
-
-        System.out.println(limList);
-    }
 }
