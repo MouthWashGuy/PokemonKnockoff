@@ -2,22 +2,12 @@ package pokemongame;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
-
+import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Test;
-
 import pokemongame.customcollections.LimitedArrayList;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    // TESTS FOR CUSTOMCOLLECTIONS
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+public class LimitedArrayListTest {
 
     @Test
     public void testLimitedArrayListConstructors() {
