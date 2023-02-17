@@ -94,5 +94,4 @@ public class LimitedArrayList<E> extends ArrayList<E> {
             return super.addAll(c);
         }
     }
-
 }

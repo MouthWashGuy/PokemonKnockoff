@@ -300,14 +300,4 @@ public class PokeType {
         }
         return final_multiplier;
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    // TESTING
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public static void main(String[] args) {
-        ALL_TYPES[] pokemon = {ALL_TYPES.Fighting, ALL_TYPES.Fairy};
-        System.out.println(calculateEffectiveness(ALL_TYPES.Steel, pokemon));
-        System.out.println(TYPE_EFFECTIVENESS_TABLE.entrySet());
-    }
 }    
