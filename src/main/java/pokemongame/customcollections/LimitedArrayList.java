@@ -1,6 +1,7 @@
 package pokemongame.customcollections;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 // Special array list with predefined limit and guardian code
@@ -22,28 +23,19 @@ public class LimitedArrayList<E> extends ArrayList<E> {
     }
 
     public LimitedArrayList(int maximumSize, E[] array) {
-        super(maximumSize);
+        super(Arrays.asList(array));
         this.maximumSize = maximumSize;
         if (array.length > maximumSize) {
             throw new IndexOutOfBoundsException("Array length is greater than maximum size!");
-        } else {
-            for (int i = 0; i < array.length; i++) {
-                super.add(array[i]);
-            }
         }
     }
 
-    @SuppressWarnings("unchecked")
     public LimitedArrayList(int maximumSize, Collection<? extends E> c) {
-        super(maximumSize);
+        super(c);
         this.maximumSize = maximumSize;
         Object[] array = c.toArray();
         if (array.length > maximumSize) {
             throw new IndexOutOfBoundsException("Array length is greater than maximum size!");
-        } else {
-            for (int i = 0; i < array.length; i++) {
-                super.add((E) array[i]);
-            }
         }
     }
 

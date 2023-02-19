@@ -243,7 +243,7 @@ public abstract class Pokemon {
         evasion = 0;
 
         // initialize movelist
-        this.moveList = new LimitedArrayList<PokeMove>(4, moveList);
+        this.moveList = new PokemonMoveList<PokeMove>(moveList);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -476,6 +476,10 @@ public abstract class Pokemon {
 
     // move list setter
     public void setMoveList(PokeMove[] moveList) {
-        this.moveList = new LimitedArrayList<PokeMove>(4, moveList);
+        this.moveList = new PokemonMoveList<PokeMove>(moveList);
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MOVE ADDERS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 }
