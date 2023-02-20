@@ -48,12 +48,20 @@ public class LimitedArrayList<E> extends ArrayList<E> {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // METHODS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public boolean isFull() {
+        return (this.size() == getMaximumSize());
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
     // OVERRIDDEN METHODS
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override 
     public void add(int index, E element) {
-        if (this.size() < maximumSize) {
+        if (this.size() < getMaximumSize()) {
             super.add(index, element);
         } else {
             throw new IndexOutOfBoundsException("The list is full!");
@@ -62,7 +70,7 @@ public class LimitedArrayList<E> extends ArrayList<E> {
 
     @Override
     public boolean add(E e) {
-        if (this.size() < maximumSize) {
+        if (this.size() < getMaximumSize()) {
             return super.add(e);
         } else {
             throw new IndexOutOfBoundsException("The list is full!");
@@ -71,7 +79,7 @@ public class LimitedArrayList<E> extends ArrayList<E> {
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        if ((this.size() + c.size()) > maximumSize) {
+        if ((this.size() + c.size()) > getMaximumSize()) {
             throw new IndexOutOfBoundsException("The list is full!");
         } else {
             return super.addAll(index, c);
@@ -80,7 +88,7 @@ public class LimitedArrayList<E> extends ArrayList<E> {
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        if ((this.size() + c.size()) > maximumSize) {
+        if ((this.size() + c.size()) > getMaximumSize()) {
             throw new IndexOutOfBoundsException("The list is full!");
         } else {
             return super.addAll(c);

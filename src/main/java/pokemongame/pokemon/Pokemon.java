@@ -474,12 +474,36 @@ public abstract class Pokemon {
         }
     }
 
-    // move list setter
+    // move list setters
     public void setMoveList(PokeMove[] moveList) {
         this.moveList = new PokemonMoveList<PokeMove>(moveList);
     }
 
+    public void setMoveList(List<PokeMove> moveList) {
+        this.moveList = new PokemonMoveList<PokeMove>(moveList);
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    // MOVE ADDERS
+    // MOVELIST MUTATORS
     ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public boolean addMove(PokeMove move) {
+        if (((PokemonMoveList<PokeMove>) getMoveList()).isFull()) {
+            return false;
+        } else {
+            return getMoveList().add(move);
+        }
+    }
+
+    public void replaceMove(int index, PokeMove move) {
+        if (((PokemonMoveList<PokeMove>) getMoveList()).isFull()) {
+            getMoveList().set(index, move);
+        } else {
+            getMoveList().add(move);
+        }
+    }
+
+    public void removeMove(int index) {
+        getMoveList().remove(index);
+    }
 }
