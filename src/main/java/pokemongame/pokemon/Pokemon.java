@@ -505,5 +505,8 @@ public abstract class Pokemon {
 
     public void removeMove(int index) {
         getMoveList().remove(index);
-    }
+    } 
 }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ABSTRAC
+    
